@@ -12,9 +12,9 @@ import requests
 
 import re
 
-my_id = os.getenv('MY_ID')
+my_id = os.environ['MY_ID']
 
-url = 'https://api.telegram.org/bot{}/'.format(os.getenv('BOT_API_KEY'))
+url = 'https://api.telegram.org/bot{}/'.format(os.environ['BOT_API_KEY'])
 
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO)
 
@@ -37,7 +37,7 @@ def reply(update, context):
 
 
 def main():
-    updater = Updater(token='1961037910:AAGXdqZP4Dop8-Nzp5oXigXWMuIYyjkV53M')
+    updater = Updater(token=os.environ['BOT_API_KEY'])
     dispatcher = updater.dispatcher
 
     dispatcher.add_handler(CommandHandler('start', start))
