@@ -1,1 +1,1 @@
-web: uvicorn bot:main
+web: python3 bot.py
